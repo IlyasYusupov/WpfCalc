@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfCalc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="юСУПОВА" Height="450" Width="800">
     <Grid>
         <Grid x:Name="MainRoot2" Background="White"  >
             <Grid.RowDefinitions>
@@ -40,9 +40,9 @@
             <TextBlock Grid.Row="1" Grid.Column="1" Text="" Grid.ColumnSpan="11" Grid.RowSpan="2" x:Name="textLabel2" FontSize="20" TextAlignment="Right"/>
             <Rectangle Grid.Row="1" Grid.Column="1" Stroke="Black" Grid.ColumnSpan="11" Grid.RowSpan="2" />
             <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="6" Margin="0,39,61,39" Grid.RowSpan="3">
-                <RadioButton Name="rbDegrees"  GroupName="Value" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,12,0,0">Граудсы</RadioButton>
-                <RadioButton x:Name="rbGrads" GroupName="Value" IsEnabled="false" Content="Грады" Margin="110,-14,0,0"></RadioButton >
-                <RadioButton Name="rbRadians" IsChecked="true" GroupName="Value" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="200,-15,0,0">Радианы</RadioButton >
+                <RadioButton Name="rbDegrees" Tag="Градусы" GroupName="Value" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="10,12,0,0" Checked="rbRadians_Checked">Граудсы</RadioButton>
+                <RadioButton x:Name="rbGrads"  GroupName="Value" IsEnabled="false" Content="Грады" Margin="110,-14,0,0" Checked="rbRadians_Checked"></RadioButton >
+                <RadioButton Name="rbRadians" Tag="Радианы"  IsChecked="true" GroupName="Value" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="200,-15,0,0" Checked="rbRadians_Checked">Радианы</RadioButton >
             </StackPanel>
             <Button Grid.Column="7" Grid.Row="6" FontFamily="Times New Roman" Margin="0,39,0,39" Grid.RowSpan="3">1</Button>
             <Button Grid.Column="7" Grid.Row="6"  FontFamily="Times New Roman" Margin="61,39,61,39" Grid.RowSpan="3" Grid.ColumnSpan="3">2</Button>

@@ -165,43 +165,95 @@ namespace WpfCalc
                 }
                 else if (str == "Sin")
                 {
-                    result = double.Parse(textLabel2.Text);
-                    result = Math.Sin(result);
-                    textLabel2.Text = result.ToString();
+                    if (Value == "Радианы")
+                    {
+                        result = double.Parse(textLabel2.Text);
+                        result = Math.Sin(result);
+                        textLabel2.Text = result.ToString();
+                    }
+                    else
+                    {
+                        result = double.Parse(textLabel2.Text) / 57.2958;
+                        result = Math.Sin(result);
+                        textLabel2.Text = result.ToString();
+                    }
                 }
                 else if (str == "Cos")
                 {
-                    if(rbRadians.IsChecked)
+                    if (Value == "Радианы")
                     {
                         result = double.Parse(textLabel2.Text);
                         result = Math.Cos(result);
                         textLabel2.Text = result.ToString();
                     }
+                    else
+                    {
+                        result = double.Parse(textLabel2.Text) / 57.2958;
+                        result = Math.Cos(result);
+                        textLabel2.Text = result.ToString();
+                    }
+
                 }
                 else if (str == "Tan")
                 {
-                    result = double.Parse(textLabel2.Text);
-                    result = Math.Tan(result);
-                    textLabel2.Text = result.ToString();
+                    if (Value == "Радианы")
+                    {
+                        result = double.Parse(textLabel2.Text);
+                        result = Math.Tan(result);
+                        textLabel2.Text = result.ToString();
+                    }
+                    else
+                    {
+                        result = double.Parse(textLabel2.Text) / 57.2958;
+                        result = Math.Tan(result);
+                        textLabel2.Text = result.ToString();
+                    }
                 }
-                else if (str == "Sin")
+                else if (str == "Sinh")
                 {
-                    result = double.Parse(textLabel2.Text);
-                    result = Math.Sinh(result);
-                    textLabel2.Text = result.ToString();
+                    if (Value == "Радианы")
+                    {
+                        result = double.Parse(textLabel2.Text);
+                        result = Math.Sinh(result);
+                        textLabel2.Text = result.ToString();
+                    }
+                    else
+                    {
+                        result = double.Parse(textLabel2.Text) / 57.2958;
+                        result = Math.Sinh(result);
+                        textLabel2.Text = result.ToString();
+                    }
                 }
-                else if (str == "Cos")
+                else if (str == "Cosh")
                 {
-                    result = double.Parse(textLabel2.Text);
-                    result = Math.Cosh(result);
-                    textLabel2.Text = result.ToString();
+                    if (Value == "Радианы")
+                    {
+                        result = double.Parse(textLabel2.Text);
+                        result = Math.Cosh(result);
+                        textLabel2.Text = result.ToString();
+                    }
+                    else
+                    {
+                        result = double.Parse(textLabel2.Text) / 57.2958;
+                        result = Math.Cosh(result);
+                        textLabel2.Text = result.ToString();
+                    }
 
                 }
                 else if (str == "Tanh")
                 {
-                    result = double.Parse(textLabel2.Text);
-                    result = Math.Tanh(result);
-                    textLabel2.Text = result.ToString();
+                    if (Value == "Радианы")
+                    {
+                        result = double.Parse(textLabel2.Text);
+                        result = Math.Tanh(result);
+                        textLabel2.Text = result.ToString();
+                    }
+                    else
+                    {
+                        result = double.Parse(textLabel2.Text) / 57.2958;
+                        result = Math.Tanh(result);
+                        textLabel2.Text = result.ToString();
+                    }
                 }
 
                 else if (str == "Exp")
@@ -221,6 +273,9 @@ namespace WpfCalc
                     xStepen = double.Parse(textLabel2.Text);
                     textLabel2.Text = "";
                     stepen = true;
+                    mod = false;
+                    stepenKoren = false;
+                    logOsnov = false;
                 }
 
                 else if (str == "y√x")
@@ -228,18 +283,27 @@ namespace WpfCalc
                     xStepenKoren = double.Parse(textLabel2.Text);
                     textLabel2.Text = "";
                     stepenKoren = true;
+                    mod = false;
+                    stepen = false;
+                    logOsnov = false;
                 }
 
                 else if (str == "log")
                 {
                     xLogOsnov = double.Parse(textLabel2.Text);
                     logOsnov = true;
+                    mod = false;
+                    stepen = false;
+                    stepenKoren = false;
                     textLabel2.Text = "";
                 }
                 else if (str == "mod")
                 {
                     xMod = double.Parse(textLabel2.Text);
                     mod = true;
+                    stepen = false;
+                    stepenKoren = false;
+                    logOsnov = false;
                     textLabel2.Text = "";
                 }
                 else
@@ -257,6 +321,10 @@ namespace WpfCalc
         {
             
         }
-        
+        string Value = "Радианы";
+        private void rbRadians_Checked(object sender, RoutedEventArgs e)
+        {
+            Value = (sender as RadioButton).Tag.ToString();
+        }
     }
 }
